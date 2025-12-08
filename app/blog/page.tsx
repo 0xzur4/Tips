@@ -1,14 +1,8 @@
 import Aside from "@/app/componets/aside"
-import Image from "next/image"
-import UjiCoba from "../componets/ujicoba"
-import { title } from "process"
+import items from "@/app/data/data.json"
 import Link from "next/link"
 
-const items = [
-    { title: "tips-belajar", href:"blog/tips-belajar", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus, sint in error nemo illum est saepe facere omnis dolorem impedit ab quam totam qui nihil laborum quae! Dolorum, deserunt necessitatibus?" },
-    { title: "penggunaan microsoft word",href:"blog/penggunaan-microsoft-word", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus, sint in error nemo illum est saepe facere omnis dolorem impedit ab quam totam qui nihil laborum quae! Dolorum, deserunt necessitatibus?" },
-    { title: "crypto dan blokchain",href:"blog/crypto-dan-blokchain", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus, sint in error nemo illum est saepe facere omnis dolorem impedit ab quam totam qui nihil laborum quae! Dolorum, deserunt necessitatibus?" }
-]
+
 
 export default function pagesBlog() {
     return (

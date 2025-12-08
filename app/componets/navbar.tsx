@@ -1,9 +1,10 @@
 "use client";
-import { useState } from "react";
+import { HtmlHTMLAttributes, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Kaushan_Script, Roboto } from "next/font/google";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { handleClientScriptLoad } from "next/script";
 
 const kaushan = Kaushan_Script({
     subsets: ["latin"],
@@ -19,9 +20,25 @@ const roboto = Roboto({
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen]: [boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false);
+    const dropDownRef = useRef<HTMLDivElement | null>(null)
+
+    useEffect(()=> {
+        
+        function handleClickOutSide(e:MouseEvent) {
+            const target = e.target as Node | null;
+            if(dropDownRef.current && !dropDownRef.current.contains(target)){
+                setIsMenuOpen(false)
+            }
+        }
+        document.addEventListener("click", handleClickOutSide);
+        return () => {
+            document.removeEventListener("click", handleClickOutSide)
+        }
+    },[] )
+
     return (
         <>
-            <header className="flex justify-between items-center p-4 border-b">
+            <header className="flex justify-between items-center p-4 border-b" ref={dropDownRef}>
                 <Link href="/" className="flex items-center">
                     <span className={`text-2xl font-bold ${kaushan.className}`}>Tips.</span>
                 </Link>
@@ -57,7 +74,7 @@ export default function Navbar() {
                 </div>
             </header>
             {isMenuOpen &&
-                <div className="absolute w-full bg-slate-50 border-b transition-all duration-300 shadow-lg z-10">
+                <div className="absolute w-full bg-slate-50 border-b transition-all duration-300 shadow-lg z-10 block md:hidden">
                     <Link href="/" className="block px-4 py-2 border-b hover:bg-gray-100">
                         Home
                     </Link>

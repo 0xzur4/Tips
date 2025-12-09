@@ -1,10 +1,9 @@
 "use client";
-import { HtmlHTMLAttributes, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Kaushan_Script, Roboto } from "next/font/google";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { handleClientScriptLoad } from "next/script";
 
 const kaushan = Kaushan_Script({
     subsets: ["latin"],
@@ -48,9 +47,6 @@ export default function Navbar() {
                     </Link>
                     <Link href="/blog" className="text-lg ">
                         Blog
-                    </Link>
-                    <Link href="/about" className="text-lg">
-                        About
                     </Link>
                 </nav>
                 <div className={`flex items-center space-x-4 ${roboto.className} hidden md:flex`}>

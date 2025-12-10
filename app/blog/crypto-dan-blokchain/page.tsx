@@ -3,7 +3,7 @@ import cryptoImg from "@/public/crypto.jpg"
 
 export default function page(){
     return(
-        <section className="flex justify-center min-h-screen ">
+        <section className="flex justify-center min-h-screen bg-[#F0F0F0] ">
             <div className="w-full p-4 md:w-[50%] text-justify flex flex-col gap-4">
                 <Image src={cryptoImg} alt="crypto" className="rounded-md"/>
                 <div className="flex flex-col gap-3">

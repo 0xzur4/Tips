@@ -1,6 +1,6 @@
 "use client"
 
-import Aside from "@/app/componets/aside"
+import Aside from "@/app/components/aside"
 import items from "@/app/data/data.json"
 import Link from "next/link"
 import Image from "next/image"

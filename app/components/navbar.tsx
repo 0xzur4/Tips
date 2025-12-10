@@ -21,11 +21,11 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen]: [boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState(false);
     const dropDownRef = useRef<HTMLDivElement | null>(null)
 
-    useEffect(()=> {
-        
-        function handleClickOutSide(e:MouseEvent) {
+    useEffect(() => {
+
+        function handleClickOutSide(e: MouseEvent) {
             const target = e.target as Node | null;
-            if(dropDownRef.current && !dropDownRef.current.contains(target)){
+            if (dropDownRef.current && !dropDownRef.current.contains(target)) {
                 setIsMenuOpen(false)
             }
         }
@@ -33,7 +33,7 @@ export default function Navbar() {
         return () => {
             document.removeEventListener("click", handleClickOutSide)
         }
-    },[] )
+    }, [])
 
     return (
         <>
@@ -48,16 +48,19 @@ export default function Navbar() {
                     <Link href="/blog" className="text-lg ">
                         Blog
                     </Link>
+                    <Link href="/about" className="text-lg ">
+                        Blog
+                    </Link>
                 </nav>
                 <div className={`flex items-center space-x-4 ${roboto.className} hidden md:flex`}>
                     <Link
-                        href="/login"
+                        href="/register"
                         className="text-lg"
                     >
                         Login
                     </Link>
                     <Link
-                        href="/signup"
+                        href="/register"
                         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                     >
                         Sign Up
@@ -76,9 +79,6 @@ export default function Navbar() {
                     </Link>
                     <Link href="/blog" className="block px-4 py-2 border-b hover:bg-gray-100">
                         Blog
-                    </Link>
-                    <Link href="/about" className="block px-4 py-2 border-b hover:bg-gray-100">
-                        About
                     </Link>
                     <Link href="/login" className="block px-4 py-2 hover:bg-gray-100">
                         Login

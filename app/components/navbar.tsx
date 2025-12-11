@@ -49,23 +49,15 @@ export default function Navbar() {
                         Blog
                     </Link>
                     <Link href="/about" className="text-lg ">
-                        Blog
+                        About
+                    </Link>
+                    <Link
+                        href="/register"
+                        className="bg-blue-500 text-white px-4 py-1 rounded-full hover:bg-blue-600"
+                    >
+                        Get Started
                     </Link>
                 </nav>
-                <div className={`flex items-center space-x-4 ${roboto.className} hidden md:flex`}>
-                    <Link
-                        href="/register"
-                        className="text-lg"
-                    >
-                        Login
-                    </Link>
-                    <Link
-                        href="/register"
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                    >
-                        Sign Up
-                    </Link>
-                </div>
                 <div className="md:hidden relative">
                     <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
                         <FontAwesomeIcon icon={faBars} className="w-6 h-6 " />
@@ -79,6 +71,9 @@ export default function Navbar() {
                     </Link>
                     <Link href="/blog" className="block px-4 py-2 border-b hover:bg-gray-100">
                         Blog
+                    </Link>
+                    <Link href="/about" className="block px-4 py-2 border-b hover:bg-gray-100">
+                        About
                     </Link>
                     <Link href="/login" className="block px-4 py-2 hover:bg-gray-100">
                         Login

@@ -21,6 +21,7 @@ export default function PagesBlog() {
                 <header className="flex flex-row rounded border gap-2">
                     <Image src={imgSearch} alt="search" width={16} height={16} />
                     <input
+                        className="w-full"
                         type="text"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
